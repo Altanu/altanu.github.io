@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Art of Making Money — A Numismatic Perspective on Life</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #B8962E; --gold-light: #D4AF5A; --gold-pale: #F5EDD4;
+    --ink: #1A1610; --ink-mid: #3C3428; --ink-soft: #6B5F4A;
+    --cream: #FAF6EE; --cream-mid: #F0E9D8; --parchment: #E8DEC8;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --baskerville: 'Libre Baskerville', serif;
+    --sans: 'Jost', sans-serif;
+  }
+  body { background: var(--cream); color: var(--ink); font-family: var(--serif); overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 64px;
+    border-bottom: 1px solid rgba(184,150,46,0.3);
+  }
+  .nav-logo { display: flex; flex-direction: column; line-height: 1.1; }
+  .nav-logo-main { font-family: var(--serif); font-size: 0.95rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase; }
+  .nav-logo-sub { font-family: var(--baskerville); font-size: 0.6rem; font-style: italic; color: rgba(212,175,90,0.5); letter-spacing: 0.08em; }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-family: var(--sans); font-size: 0.68rem; font-weight: 400; color: rgba(212,175,90,0.7); letter-spacing: 0.15em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* HERO */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: center; justify-content: center; background: var(--ink); overflow: hidden; }
+  .hero-bg-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(184,150,46,0.15); }
+  .hero-bg-circle:nth-child(1) { width: 700px; height: 700px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-bg-circle:nth-child(2) { width: 520px; height: 520px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-bg-circle:nth-child(3) { width: 350px; height: 350px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .hero-coin {
+    position: absolute; width: 340px; height: 340px; border-radius: 50%;
+    background: radial-gradient(ellipse at 30% 30%, #D4AF5A 0%, #B8962E 40%, #8A6E1C 70%, #5A4410 100%);
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 0 60px rgba(0,0,0,0.4), inset 0 2px 4px rgba(255,255,255,0.15);
+  }
+  .hero-coin-inner { width: 280px; height: 280px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+  .coin-symbol { font-size: 5rem; color: rgba(255,255,255,0.15); line-height: 1; }
+  .coin-text { font-family: var(--sans); font-size: 0.55rem; letter-spacing: 0.3em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+  .hero-content { position: relative; z-index: 10; text-align: center; padding: 2rem; margin-top: 30vh; }
+  .hero-eyebrow { font-family: var(--sans); font-size: 0.7rem; font-weight: 400; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
+  .hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 300; color: var(--cream); line-height: 1.08; letter-spacing: -0.01em; margin-bottom: 0.6rem; }
+  .hero-title em { font-style: italic; color: var(--gold-light); }
+  .hero-subtitle { font-family: var(--baskerville); font-size: clamp(0.85rem, 1.5vw, 1.05rem); font-style: italic; color: rgba(212,175,90,0.6); letter-spacing: 0.04em; margin-bottom: 1.5rem; }
+  .hero-rule { width: 60px; height: 1px; background: var(--gold); margin: 0 auto 1.5rem; opacity: 0.5; }
+  .hero-sub { font-family: var(--baskerville); font-size: 1rem; color: rgba(250,246,238,0.5); max-width: 480px; margin: 0 auto 3rem; line-height: 1.8; font-style: italic; }
+  .hero-cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+  /* BUTTONS */
+  .btn-primary { font-family: var(--sans); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: var(--ink); border: none; padding: 0.85rem 2.5rem; cursor: pointer; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-secondary { font-family: var(--sans); font-size: 0.72rem; font-weight: 400; letter-spacing: 0.2em; text-transform: uppercase; background: transparent; color: var(--gold-light); border: 1px solid rgba(184,150,46,0.5); padding: 0.85rem 2.5rem; cursor: pointer; transition: border-color 0.2s, color 0.2s; }
+  .btn-secondary:hover { border-color: var(--gold-light); color: var(--cream); }
+
+  /* STATS STRIP */
+  .intro-strip { background: var(--cream-mid); border-top: 1px solid var(--parchment); border-bottom: 1px solid var(--parchment); display: flex; align-items: stretch; }
+  .intro-block { flex: 1; padding: 2.5rem 2rem; border-right: 1px solid var(--parchment); text-align: center; }
+  .intro-block:last-child { border-right: none; }
+  .intro-num { font-family: var(--serif); font-size: 2.8rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 0.4rem; }
+  .intro-label { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* SHARED SECTION STYLES */
+  section { padding: 6rem 4rem; }
+  .section-tag { font-family: var(--sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+  .section-title { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--ink); line-height: 1.15; margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--gold); }
+  .section-body { font-family: var(--baskerville); font-size: 0.95rem; line-height: 1.85; color: var(--ink-soft); max-width: 520px; }
+
+  /* ERAS */
+  .eras-section { background: var(--cream); }
+  .eras-header { text-align: center; margin-bottom: 4rem; }
+  .eras-header .section-body { margin: 0 auto; text-align: center; }
+  .eras-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; max-width: 1100px; margin: 0 auto; }
+  .era-card { background: var(--cream-mid); padding: 2.5rem 2rem; border: 1px solid var(--parchment); position: relative; overflow: hidden; cursor: pointer; transition: background 0.3s; }
+  .era-card:hover { background: var(--gold-pale); }
+  .era-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0; background: var(--gold); transition: height 0.3s; }
+  .era-card:hover::before { height: 100%; }
+  .era-period { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .era-name { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--ink); margin-bottom: 0.75rem; line-height: 1.2; }
+  .era-desc { font-family: var(--baskerville); font-size: 0.82rem; line-height: 1.75; color: var(--ink-soft); font-style: italic; }
+  .era-example { margin-top: 1.5rem; font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); }
+
+  /* MONETARY HISTORY */
+  .history-section { background: var(--ink); }
+  .history-section .section-title { color: var(--cream); }
+  .history-section .section-body { color: rgba(250,246,238,0.6); }
+  .history-layout { display: flex; gap: 5rem; align-items: flex-start; flex-wrap: wrap; }
+  .history-text { flex: 1; min-width: 260px; }
+  .timeline { flex: 1.5; min-width: 300px; position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: rgba(184,150,46,0.3); }
+  .tl-item { position: relative; margin-bottom: 2.5rem; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot { position: absolute; left: -2.4rem; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--ink); box-shadow: 0 0 0 1px var(--gold); }
+  .tl-year { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
+  .tl-event { font-family: var(--serif); font-size: 1.15rem; font-weight: 400; color: var(--cream); margin-bottom: 0.4rem; line-height: 1.3; }
+  .tl-desc { font-family: var(--baskerville); font-size: 0.8rem; line-height: 1.7; color: rgba(250,246,238,0.55); font-style: italic; }
+
+  /* FINANCIAL EDUCATION */
+  .edu-section { background: var(--cream-mid); }
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3.5rem; }
+  .edu-card { background: var(--cream); border: 1px solid var(--parchment); padding: 2rem; position: relative; overflow: hidden; transition: border-color 0.3s; }
+  .edu-card:hover { border-color: var(--gold); }
+  .edu-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .edu-card:hover::after { transform: scaleX(1); }
+  .edu-icon { font-family: var(--serif); font-size: 2rem; color: var(--gold); margin-bottom: 1rem; line-height: 1; }
+  .edu-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--ink); margin-bottom: 0.6rem; }
+  .edu-body { font-family: var(--baskerville); font-size: 0.8rem; line-height: 1.8; color: var(--ink-soft); font-style: italic; margin-bottom: 1.25rem; }
+  .edu-link { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); cursor: pointer; text-decoration: none; transition: color 0.2s; display: inline-block; }
+  .edu-link:hover { color: var(--ink); }
+
+  /* COLLECTION TRACKER */
+  .tracker-section { background: var(--cream); }
+  .tracker-layout { display: flex; gap: 4rem; align-items: flex-start; flex-wrap: wrap; }
+  .tracker-text { flex: 1; min-width: 260px; }
+  .tracker-widget { flex: 1.4; min-width: 300px; }
+  .coin-table { width: 100%; border-collapse: collapse; }
+  .coin-table thead tr { border-bottom: 1px solid var(--parchment); }
+  .coin-table th { font-family: var(--sans); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); padding: 0.75rem 1rem; text-align: left; }
+  .coin-table td { font-family: var(--baskerville); font-size: 0.82rem; color: var(--ink-soft); padding: 0.9rem 1rem; border-bottom: 1px solid var(--parchment); }
+  .coin-table tbody tr:hover td { color: var(--ink); background: var(--gold-pale); }
+  .grade-badge { display: inline-block; font-family: var(--sans); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.1em; padding: 2px 8px; border: 1px solid rgba(184,150,46,0.5); color: var(--gold); }
+  .value-up { color: #4A8C5C; }
+  .tracker-add { margin-top: 1.5rem; display: flex; gap: 0.75rem; }
+  .tracker-input { flex: 1; background: var(--cream-mid); border: 1px solid var(--parchment); color: var(--ink); font-family: var(--baskerville); font-size: 0.85rem; padding: 0.6rem 1rem; outline: none; transition: border-color 0.2s; }
+  .tracker-input::placeholder { color: var(--ink-soft); }
+  .tracker-input:focus { border-color: var(--gold); }
+  .tracker-btn { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; background: var(--gold); color: var(--ink); border: none; padding: 0 1.5rem; cursor: pointer; transition: background 0.2s; }
+  .tracker-btn:hover { background: var(--gold-light); }
+
+  /* ENCYCLOPEDIA */
+  .ency-section { background: var(--cream-mid); }
+  .ency-layout { display: flex; gap: 5rem; align-items: flex-start; flex-wrap: wrap; }
+  .ency-text { flex: 1; min-width: 260px; }
+  .ency-terms { flex: 1; min-width: 280px; }
+  .term-item { padding: 1.25rem 0; border-bottom: 1px solid var(--parchment); }
+  .term-item:first-child { border-top: 1px solid var(--parchment); }
+  .term-word { font-family: var(--serif); font-size: 1.15rem; font-weight: 500; color: var(--ink); margin-bottom: 0.3rem; }
+  .term-word em { font-style: italic; color: var(--gold); font-size: 0.85em; margin-left: 0.4rem; }
+  .term-def { font-family: var(--baskerville); font-size: 0.82rem; line-height: 1.7; color: var(--ink-soft); font-style: italic; }
+
+  /* MARKETPLACE */
+  .market-section { background: var(--cream); }
+  .market-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 3rem; max-width: 1100px; }
+  .market-card { border: 1px solid var(--parchment); background: var(--cream-mid); overflow: hidden; transition: border-color 0.2s; }
+  .market-card:hover { border-color: var(--gold); }
+  .market-img { height: 160px; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+  .coin-preview { width: 100px; height: 100px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; position: relative; }
+  .coin-preview::after { content: ''; position: absolute; inset: 6px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.15); }
+  .coin-gold { background: radial-gradient(ellipse at 35% 35%, #D4AF5A, #8A6E1C); }
+  .coin-silver { background: radial-gradient(ellipse at 35% 35%, #D8D8D8, #7A7A7A); }
+  .coin-bronze { background: radial-gradient(ellipse at 35% 35%, #C87533, #6B3A1F); }
+  .market-body { padding: 1.25rem; }
+  .market-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; color: var(--ink); margin-bottom: 0.2rem; }
+  .market-meta { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+  .market-desc { font-family: var(--baskerville); font-size: 0.78rem; font-style: italic; color: var(--ink-soft); line-height: 1.6; margin-bottom: 1rem; }
+  .market-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--parchment); padding-top: 0.75rem; }
+  .market-price { font-family: var(--serif); font-size: 1.3rem; color: var(--gold); }
+  .market-grade { font-family: var(--sans); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+
+  /* FOOTER */
+  footer { background: var(--ink); padding: 3rem 4rem; border-top: 1px solid rgba(184,150,46,0.2); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-brand { font-family: var(--serif); font-size: 1rem; font-weight: 600; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase; }
+  .footer-brand-sub { font-family: var(--baskerville); font-size: 0.65rem; font-style: italic; color: rgba(212,175,90,0.4); margin-top: 3px; }
+  .footer-note { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(212,175,90,0.4); text-transform: uppercase; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .eras-grid { grid-template-columns: 1fr; }
+    .history-layout, .tracker-layout, .ency-layout { flex-direction: column; gap: 2.5rem; }
+    footer { padding: 2rem 1.5rem; }
+    .intro-strip { flex-direction: column; }
+    .intro-block { border-right: none; border-bottom: 1px solid var(--parchment); }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-main">The Art of Making Money</div>
+    <div class="nav-logo-sub">A Numismatic Perspective on Life</div>
+  </div>
+  <div class="nav-links">
+    <a href="#eras">Eras</a>
+    <a href="#monetary-history">Monetary History</a>
+    <a href="#financial-education">Financial Education</a>
+    <a href="#collection">Collection</a>
+    <a href="#encyclopedia">Encyclopedia</a>
+    <a href="#marketplace">Marketplace</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle"></div>
+  <div class="hero-bg-circle"></div>
+  <div class="hero-coin">
+    <div class="hero-coin-inner">
+      <div class="coin-symbol">₮</div>
+      <div class="coin-text">· Est. MMXXVI ·</div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A Numismatic Perspective on Life</div>
+    <h1 class="hero-title">The <em>Art</em> of<br>Making Money</h1>
+    <div class="hero-rule"></div>
+    <p class="hero-subtitle">A Numismatic Perspective on Life</p>
+    <p class="hero-sub">From ancient staters to modern proofs — explore, collect, and understand the world through the coins that shaped it.</p>
+    <div class="hero-cta">
+      <button class="btn-primary" onclick="document.getElementById('eras').scrollIntoView({behavior:'smooth'})">Explore Eras</button>
+      <button class="btn-secondary" onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})">My Collection</button>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="intro-strip">
+  <div class="intro-block"><div class="intro-num">3,000+</div><div class="intro-label">Years of coinage history</div></div>
+  <div class="intro-block"><div class="intro-num">200+</div><div class="intro-label">World mints documented</div></div>
+  <div class="intro-block"><div class="intro-num">70</div><div class="intro-label">Grading points (Sheldon scale)</div></div>
+  <div class="intro-block"><div class="intro-num">$50B</div><div class="intro-label">Global numismatic market</div></div>
+</div>
+
+<!-- ERAS -->
+<section class="eras-section" id="eras">
+  <div class="eras-header">
+    <div class="section-tag">History</div>
+    <h2 class="section-title">Six <em>millennia</em> of struck metal</h2>
+    <p class="section-body">Coins are the most tangible artifacts of civilization — every dynasty, empire, and republic left its mark in metal.</p>
+  </div>
+  <div class="eras-grid">
+    <div class="era-card">
+      <div class="era-period">650–323 BCE</div>
+      <div class="era-name">Ancient Greek</div>
+      <div class="era-desc">The birth of coinage in Lydia and its flowering across city-states. Electrum staters, Athenian owls, and Macedonian gold.</div>
+      <div class="era-example">→ Athenian Tetradrachm</div>
+    </div>
+    <div class="era-card">
+      <div class="era-period">264 BCE–476 CE</div>
+      <div class="era-name">Roman Imperial</div>
+      <div class="era-desc">Gold aurei, silver denarii, and bronze sestertii bearing the portraits of emperors from Augustus to Romulus Augustulus.</div>
+      <div class="era-example">→ Denarius of Julius Caesar</div>
+    </div>
+    <div class="era-card">
+      <div class="era-period">476–1500 CE</div>
+      <div class="era-name">Medieval</div>
+      <div class="era-desc">Hammered coins of Byzantium, Islamic dirhams, and the Florentine florin that financed the Renaissance.</div>
+      <div class="era-example">→ Byzantine Solidus</div>
+    </div>
+    <div class="era-card">
+      <div class="era-period">1500–1800</div>
+      <div class="era-name">Early Modern</div>
+      <div class="era-desc">Spanish pieces of eight, Dutch ducats, and the dawn of milled coinage with its precise, machine-struck edges.</div>
+      <div class="era-example">→ Spanish 8 Reales</div>
+    </div>
+    <div class="era-card">
+      <div class="era-period">1800–1945</div>
+      <div class="era-name">Classic Era</div>
+      <div class="era-desc">The golden age of numismatics. Trade dollars, Liberty heads, Morgan dollars, and the last great gold coins of the world.</div>
+      <div class="era-example">→ Morgan Silver Dollar</div>
+    </div>
+    <div class="era-card">
+      <div class="era-period">1945–Present</div>
+      <div class="era-name">Modern &amp; Bullion</div>
+      <div class="era-desc">Commemoratives, proof sets, and investment-grade bullion. The American Eagle, Britannia, and Maple Leaf series.</div>
+      <div class="era-example">→ American Gold Eagle</div>
+    </div>
+  </div>
+</section>
+
+<!-- MONETARY HISTORY -->
+<section class="history-section" id="monetary-history">
+  <div class="history-layout">
+    <div class="history-text">
+      <div class="section-tag" style="color:var(--gold);">Monetary History</div>
+      <h2 class="section-title" style="color:var(--cream);">How <em>money</em> shaped the world</h2>
+      <p class="section-body">Every monetary system tells a story of power, trust, and human ingenuity. From cowrie shells to the gold standard — the history of money is the history of civilization itself.</p>
+      <div style="margin-top:2.5rem;">
+        <a href="https://en.wikipedia.org/wiki/History_of_money" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;">Explore monetary history →</a>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">c. 3000 BCE</div>
+        <div class="tl-event">The First Commodity Money</div>
+        <div class="tl-desc">Barley, grain, and cowrie shells served as the earliest standardized mediums of exchange in Mesopotamia and China, establishing the foundational concept of stored value.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">c. 650 BCE</div>
+        <div class="tl-event">The Lydian Electrum Stater</div>
+        <div class="tl-desc">King Alyattes of Lydia mints the world's first true coin — a stamped, standardized piece of electrum that revolutionized trade across the ancient world.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">806 CE</div>
+        <div class="tl-event">Chinese Paper Currency</div>
+        <div class="tl-desc">The Tang Dynasty introduces "flying money" — the world's first paper banknotes — a radical innovation born of the inconvenience of carrying heavy copper coins.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1694</div>
+        <div class="tl-event">The Bank of England Founded</div>
+        <div class="tl-desc">The establishment of the world's first modern central bank marks the birth of fractional reserve banking and the monetary system still in use today.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1944</div>
+        <div class="tl-event">Bretton Woods Agreement</div>
+        <div class="tl-desc">44 nations fix their currencies to the US dollar, which is pegged to gold at $35 per ounce, creating the post-war global monetary order.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">1971</div>
+        <div class="tl-event">The Nixon Shock</div>
+        <div class="tl-desc">President Nixon ends dollar convertibility to gold, severing the last link between currency and precious metal — ushering in the era of pure fiat money.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2009</div>
+        <div class="tl-event">Bitcoin &amp; Digital Currency</div>
+        <div class="tl-desc">Satoshi Nakamoto's white paper launches the first decentralized digital currency, reopening ancient debates about what money truly is and who controls it.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIAL EDUCATION -->
+<section class="edu-section" id="financial-education">
+  <div style="text-align:center; margin-bottom:1rem;">
+    <div class="section-tag" style="display:inline-block;">Financial Education</div>
+  </div>
+  <h2 class="section-title" style="text-align:center; max-width:600px; margin:0 auto 1rem;"><em>Lessons</em> in value, wealth &amp; wisdom</h2>
+  <p class="section-body" style="text-align:center; margin:0 auto;">Coins are more than collectibles — they are windows into the principles of economics, value, and the enduring human relationship with wealth.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">⚖</div>
+      <div class="edu-title">Intrinsic vs. Fiat Value</div>
+      <div class="edu-body">Why does a coin containing $20 of silver trade for $80? Understanding the difference between a coin's metal content and its market value is the first lesson in monetary economics — and a mirror of modern finance.</div>
+      <a href="https://en.wikipedia.org/wiki/Intrinsic_value_(finance)" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">♾</div>
+      <div class="edu-title">Inflation &amp; Debasement</div>
+      <div class="edu-body">Roman emperors secretly reduced the silver content of the denarius to fund wars — an ancient form of inflation. The parallels to modern quantitative easing are striking and instructive for any investor.</div>
+      <a href="https://en.wikipedia.org/wiki/Debasement" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">◈</div>
+      <div class="edu-title">Store of Value</div>
+      <div class="edu-body">Gold has preserved wealth across 3,000 years of empires, revolutions, and financial crises. Understanding why precious metals endure as stores of value is essential to building a resilient portfolio.</div>
+      <a href="https://en.wikipedia.org/wiki/Store_of_value" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">⟳</div>
+      <div class="edu-title">Supply, Scarcity &amp; Rarity</div>
+      <div class="edu-body">The 1933 Double Eagle — 445,500 struck, almost all melted. One sold for $18.9 million. Scarcity is the engine of numismatic value and mirrors the economic principle that drives every market on earth.</div>
+      <a href="https://en.wikipedia.org/wiki/1933_double_eagle" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">△</div>
+      <div class="edu-title">Compound Growth &amp; Long-term Thinking</div>
+      <div class="edu-body">A Morgan Dollar purchased in 1900 for $1 is worth $3,000 today. The numismatic collector's patience — holding through decades — embodies the most powerful principle in personal finance.</div>
+      <a href="https://en.wikipedia.org/wiki/Compound_interest" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">◎</div>
+      <div class="edu-title">Diversification &amp; Tangible Assets</div>
+      <div class="edu-body">Physical coins occupy a unique space in a portfolio — simultaneously art, history, commodity, and investment. Understanding alternative assets is increasingly vital in an era of volatile financial markets.</div>
+      <a href="https://en.wikipedia.org/wiki/Diversification_(finance)" target="_blank" class="edu-link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTION TRACKER -->
+<section class="tracker-section" id="collection">
+  <div class="tracker-layout">
+    <div class="tracker-text">
+      <div class="section-tag">Collection</div>
+      <h2 class="section-title">Your <em>cabinet</em> of coins</h2>
+      <p class="section-body">Track every coin in your collection — grade, year, mint mark, and current market value. A collector's ledger, refined.</p>
+      <div style="margin-top:2rem;">
+        <div style="font-family:var(--sans);font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Portfolio value</div>
+        <div style="font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--ink);" id="portfolio-val">$14,320</div>
+        <div style="font-family:var(--sans);font-size:0.7rem;color:#4A8C5C;margin-top:0.25rem;">↑ 8.4% this quarter</div>
+      </div>
+    </div>
+    <div class="tracker-widget">
+      <table class="coin-table">
+        <thead><tr><th>Coin</th><th>Year</th><th>Grade</th><th>Est. Value</th></tr></thead>
+        <tbody id="coin-tbody">
+          <tr><td>Morgan Dollar</td><td>1881-S</td><td><span class="grade-badge">MS-65</span></td><td class="value-up">$3,200</td></tr>
+          <tr><td>Saint-Gaudens $20</td><td>1924</td><td><span class="grade-badge">MS-63</span></td><td class="value-up">$2,850</td></tr>
+          <tr><td>Athenian Tetradrachm</td><td>c. 450 BCE</td><td><span class="grade-badge">VF-30</span></td><td class="value-up">$4,100</td></tr>
+          <tr><td>Walking Liberty Half</td><td>1945-D</td><td><span class="grade-badge">MS-64</span></td><td>$620</td></tr>
+          <tr><td>Roman Denarius (Nero)</td><td>64 CE</td><td><span class="grade-badge">F-15</span></td><td class="value-up">$3,550</td></tr>
+        </tbody>
+      </table>
+      <div class="tracker-add">
+        <input class="tracker-input" id="coin-input" placeholder="Add a coin to your collection…" />
+        <button class="tracker-btn" onclick="addCoin()">Add</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENCYCLOPEDIA -->
+<section class="ency-section" id="encyclopedia">
+  <div class="ency-layout">
+    <div class="ency-text">
+      <div class="section-tag">Encyclopedia</div>
+      <h2 class="section-title">The <em>language</em> of coins</h2>
+      <p class="section-body">Numismatics carries its own precise vocabulary — a shared lexicon developed over centuries by scholars and collectors alike.</p>
+      <div style="margin-top:2.5rem;">
+        <a href="https://en.wikipedia.org/wiki/Glossary_of_numismatics" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;">Explore full glossary →</a>
+      </div>
+    </div>
+    <div class="ency-terms">
+      <div class="term-item"><div class="term-word">Obverse <em>n.</em></div><div class="term-def">The "heads" side of a coin, typically bearing the principal design — a portrait, deity, or national symbol.</div></div>
+      <div class="term-item"><div class="term-word">Patina <em>n.</em></div><div class="term-def">The natural oxidation layer that develops on metal over time. On ancient coins, a deep patina indicates authenticity and is prized by collectors.</div></div>
+      <div class="term-item"><div class="term-word">Proof <em>adj.</em></div><div class="term-def">A coin struck with specially prepared dies on polished planchets, resulting in mirror-like fields and frosted devices.</div></div>
+      <div class="term-item"><div class="term-word">Toning <em>n.</em></div><div class="term-def">Natural color changes in silver or gold resulting from chemical reactions with the environment — often adding to a coin's aesthetic beauty and value.</div></div>
+      <div class="term-item"><div class="term-word">Planchet <em>n.</em></div><div class="term-def">The blank disc of metal upon which a coin's design is struck. Planchet errors are among the most prized varieties in numismatics.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKETPLACE -->
+<section class="market-section" id="marketplace">
+  <div class="section-tag">Marketplace</div>
+  <h2 class="section-title">Featured <em>acquisitions</em></h2>
+  <p class="section-body" style="margin-bottom:0;">Curated coins available from verified dealers and private collections worldwide.</p>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="market-img"><div class="coin-preview coin-gold">⚜</div></div>
+      <div class="market-body">
+        <div class="market-name">Augustus Aureus</div>
+        <div class="market-meta">Roman Imperial · 27 BCE</div>
+        <div class="market-desc">Struck at the Lugdunum mint, bearing the radiate portrait of the first emperor. Exceptional preservation of legends.</div>
+        <div class="market-footer"><div class="market-price">$18,500</div><div class="market-grade">Grade: EF-45</div></div>
+      </div>
+    </div>
+    <div class="market-card">
+      <div class="market-img"><div class="coin-preview coin-silver">🦉</div></div>
+      <div class="market-body">
+        <div class="market-name">Athenian Tetradrachm</div>
+        <div class="market-meta">Attica, Greece · c. 480 BCE</div>
+        <div class="market-desc">New-style tetradrachm with the iconic helmeted Athena and owl reverse. Full reverse crest intact.</div>
+        <div class="market-footer"><div class="market-price">$6,200</div><div class="market-grade">Grade: VF-35</div></div>
+      </div>
+    </div>
+    <div class="market-card">
+      <div class="market-img"><div class="coin-preview coin-gold">★</div></div>
+      <div class="market-body">
+        <div class="market-name">Saint-Gaudens Double Eagle</div>
+        <div class="market-meta">United States · 1908</div>
+        <div class="market-desc">No-motto variety, considered the most beautiful American coin ever struck. Rich original luster throughout.</div>
+        <div class="market-footer"><div class="market-price">$4,750</div><div class="market-grade">Grade: MS-62</div></div>
+      </div>
+    </div>
+    <div class="market-card">
+      <div class="market-img"><div class="coin-preview coin-bronze">♦</div></div>
+      <div class="market-body">
+        <div class="market-name">Byzantine Solidus</div>
+        <div class="market-meta">Constantinople · c. 700 CE</div>
+        <div class="market-desc">Gold solidus of Justinian II, second reign. Frontfacing Christ portrait obverse — rare and historically significant.</div>
+        <div class="market-footer"><div class="market-price">$3,100</div><div class="market-grade">Grade: AU-55</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">The Art of Making Money</div>
+    <div class="footer-brand-sub">A Numismatic Perspective on Life</div>
+  </div>
+  <div class="footer-note">Est. MMXXVI · The Collector's Companion</div>
+</footer>
+
+<script>
+  // Smooth scroll for nav links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Collection tracker
+  function addCoin() {
+    const input = document.getElementById('coin-input');
+    const val = input.value.trim();
+    if (!val) return;
+    const tbody = document.getElementById('coin-tbody');
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${val}</td><td>—</td><td><span class="grade-badge">Raw</span></td><td>—</td>`;
+    tbody.appendChild(tr);
+    input.value = '';
+  }
+  document.getElementById('coin-input').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addCoin();
+  });
+</script>
+</body>
+</html>
